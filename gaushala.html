@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गौशाला और गो रक्षा दल</title>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container container">
+            <a href="index.html" class="nav-logo">पहाड़ी मंदिर</a>
+            <div class="nav-container">
+                <a href="index.html#hero">मुख्य पृष्ठ</a>
+                <a href="index.html#about">परिचय</a>
+                <a href="index.html#gallery">गैलरी</a>
+                <a href="index.html#features">विशेषताएं</a>
+                <a href="index.html#contact">संपर्क</a>
+                <a href="gaushala.html" class="gaushala-nav"><i class="fas fa-cow"></i> गौशाला</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cow"></i> मंदिर की गौशाला</h2>
+            <p>पहाड़ी मंदिर की गौशाला एक शांत और पवित्र स्थान है जहाँ गौमाता की सेवा की जाती है। यह गौशाला स्थानीय गाँवों की बेसहारा और बीमार गायों के लिए आश्रय है। यहाँ प्रतिदिन चारा, पानी और देखभाल सुनिश्चित की जाती है।</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-seedling feature-icon"></i>
+                    <h3>चारे की व्यवस्था</h3>
+                    <p>स्थानीय दान से प्राप्त हरे चारे और भूसे की आपूर्ति</p>
+                    <button class="donate-btn" onclick="showDonationQR('gaushala')">दान करें</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-heart feature-icon"></i>
+                    <h3>सेवा कार्य</h3>
+                    <p>स्वयंसेवकों द्वारा गायों की नियमित देखभाल और उपचार</p>
+                    <button class="donate-btn" onclick="showDonationQR('gaushala')">दान करें</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hands feature-icon"></i>
+                    <h3>दान के अवसर</h3>
+                    <p>आप दान देकर गायों के लिए चारा, दवा और आश्रय सुनिश्चित कर सकते हैं</p>
+                    <button class="donate-btn" onclick="showDonationQR('gaushala')">दान करें</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-users"></i> गो रक्षा दल</h2>
+            <p>गो रक्षा दल एक स्वयंसेवी संगठन है जो गायों की सुरक्षा, देखभाल और कल्याण के लिए कार्य करता है। यह दल स्थानीय समुदाय, मंदिर ट्रस्ट और दानदाताओं के सहयोग से चलता है।</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bullhorn feature-icon"></i>
+                    <h3>सामाजिक जागरूकता</h3>
+                    <p>गायों की सुरक्षा के लिए जागरूकता अभियान और कार्यशालाएँ</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-stethoscope feature-icon"></i>
+                    <h3>स्वास्थ्य जांच</h3>
+                    <p>नियमित रूप से गायों की चिकित्सा जांच और उपचार</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-friends feature-icon"></i>
+                    <h3>स्वयंसेवक जुड़ाव</h3>
+                    <p>स्थानिक युवा और श्रद्धालु सेवा में भाग लेते हैं</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for QR Donation -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="qrTitle">दान QR कोड</h2>
+            <div id="qrContainer">
+                <img id="qrImage" src="./images/gaushala_qr.png" alt="QR Code">
+            </div>
+            <p class="qr-instructions">QR कोड को स्कैन करके गौशाला हेतु दान करें</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="text-align: center; padding: 20px;">
+            © <span id="year"></span> पहाड़ी मंदिर, पिलानी | सभी अधिकार सुरक्षित
+        </div>
+    </footer>
+    </body>
+    </html>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
