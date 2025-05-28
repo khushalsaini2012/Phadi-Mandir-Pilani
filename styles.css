@@ -247,6 +247,36 @@ body {
     height: 300px;
 }
 
+/* Gallery Navigation Buttons */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.gallery-nav:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-gallery {
+    left: 10px;
+}
+
+.next-gallery {
+    right: 10px;
+}
+
 .slides {
     width: 33.333%;
     height: 100%;
@@ -421,6 +451,48 @@ body {
     border: none;
     cursor: pointer;
     z-index: 9999; /* Increased z-index to ensure it's on top */
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
 }
 
 /* Add style for the donation text */
@@ -428,99 +500,20 @@ body {
     color: var(--primary-color); /* Set text color to orange */
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-.social-link:hover {
-    color: var(--secondary-color);
-}
-
 /* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* @keyframes fadeInUp is already defined earlier */
 
 /* Slideshow styles */
-.slideshow-container {
-    max-width: 1200px;
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    overflow: hidden;
-    height: 300px;
-}
-
-.slides {
-    width: 33.333%;
-    height: 100%;
-    flex-shrink: 0;
-    padding: 0 10px;
-    transition: transform 0.5s ease;
-}
-
-.slides img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    background: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 8px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.active-dot {
-    background-color: var(--primary-color);
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
+/* .slideshow-container and related styles are already defined earlier */
+/* .slides and related styles are already defined earlier */
+/* .slides img and related styles are already defined earlier */
+/* .prev, .next and related styles are already defined earlier */
+/* .prev and related styles are already defined earlier */
+/* .next and related styles are already defined earlier */
+/* .dot and related styles are already defined earlier */
+/* .active-dot and related styles are already defined earlier */
+/* .fade class and related styles are already defined earlier */
+/* @keyframes fade is already defined earlier */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -639,6 +632,48 @@ body {
     border: none;
     cursor: pointer;
     z-index: 9999; /* Increased z-index to ensure it's on top */
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
 }
 
 /* Enhanced Chatbot Styles */
@@ -835,50 +870,12 @@ body {
 }
 
 /* Basic Chatbot Styles */
-.chatbot-container {
-    position: fixed;
-    bottom: 80px; /* Increased to prevent overlap with the button */
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 1000;
-    display: none; /* Hide by default */
-}
-
-.chatbot-container.active {
-    display: flex; /* Show when active class is added */
-}
+/* .chatbot-container is already defined with enhanced styles earlier */
+/* .chatbot-container.active is already defined with enhanced styles earlier */
 
 /* Style for the button to open the chatbot */
-.open-chatbot-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.open-chatbot-button.hidden {
-    display: none; /* Hide button when chat is open */
-}
+/* .open-chatbot-button is already defined with enhanced styles earlier */
+/* .open-chatbot-button.hidden is already defined with enhanced styles earlier */
 
 /* Donation Form Styles */
 #donation-form {
@@ -923,23 +920,11 @@ body {
 }
 
 /* Chat Loading Animation */
-.message.loading {
-    position: relative;
-}
+/* .message.loading is already defined earlier */
+/* .message.loading:after is already defined earlier using loadingDots keyframes */
 
-.message.loading:after {
-    content: '...';
-    animation: dots 1.5s infinite;
-    display: inline-block;
-    width: 20px;
-    text-align: left;
-}
+/* @keyframes dots is redundant as @keyframes loadingDots serves the same purpose */
 
-@keyframes dots {
-    0%, 20% { content: '.'; }
-    40% { content: '..'; }
-    60%, 100% { content: '...'; }
-}
 .about-container {
     display: grid;
     grid-template-columns: 2fr 1fr;

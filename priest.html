@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav class="nav-bar">
@@ -29,7 +30,6 @@
                 <img src="./images/priest.jpg" alt="Mai Maharaj" class="priest-photo">
                 <div class="priest-info">
 
-                    <h2 class="section-title">माई महाराज (सुरेंद्र सैनी)</h2>
                     <h3>मुख्य पुजारी, पहाड़ी मंदिर, पिलानी</h3>
                     
                     <div class="feature-card">
@@ -82,16 +82,39 @@
         </section>
     </div>
 
-    <footer>
-        <div class="container">
-            <div style="text-align: center; margin-top: 2rem;">
-                © <span id="year"></span> पहाड़ी मंदिर, पिलानी | सभी अधिकार सुरक्षित
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h3>संपर्क करें</h3>
+                <p>पहाड़ी मंदिर, पिलानी, राजस्थान</p>
+                <p>ईमेल: info@pahadimandir.org</p>
+                <p>फ़ोन: +91 12345 67890</p>
+            </div>
+            <div class="footer-section">
+                <h3>त्वरित लिंक्स</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="index.html#hero" style="color: var(--primary-color); text-decoration: none;">मुख्य पृष्ठ</a></li>
+                    <li><a href="index.html#about" style="color: var(--primary-color); text-decoration: none;">परिचय</a></li>
+                    <li><a href="index.html#gallery" style="color: var(--primary-color); text-decoration: none;">गैलरी</a></li>
+                    <li><a href="gaushala.html" style="color: var(--primary-color); text-decoration: none;">गौशाला</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>माई महाराज</h3>
+                <p>माई महाराज से मिलने और आशीर्वाद लेने के लिए मंदिर में पधारें।</p>
+            </div>
+            <div class="footer-section">
+                <h3>सामाजिक मीडिया</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 2rem; padding-bottom: 1rem; background-color: var(--bg-light);">
+             © <span id="year"></span> पहाड़ी मंदिर, पिलानी | सभी अधिकार सुरक्षित
+        </div>
     </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>

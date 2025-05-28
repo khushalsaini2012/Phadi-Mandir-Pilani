@@ -3,10 +3,11 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Add this line
 
 // Initialize Express and SQLite
 const app = express();
-const port = 8000;
+const port = 8001;
 const db = new sqlite3.Database('temple_db.sqlite', (err) => {
     if (err) {
         console.error('Error opening database', err.message);
@@ -20,6 +21,7 @@ const db = new sqlite3.Database('temple_db.sqlite', (err) => {
 app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cors()); // Add this line to enable CORS for all routes
 
 // Create tables if they don't exist and populate predefined_responses if empty
 function initializeDb() {
@@ -100,48 +102,92 @@ app.get('/api/predefined-responses', (req, res) => {
 
 // Message handling endpoint
 app.post('/api/messages', (req, res) => {
+    console.log('Received request for /api/messages');
     const { message } = req.body;
+    console.log('User message received:', message);
+
+    if (!message) {
+        console.error('No message received in request body');
+        return res.status(400).json({ error: 'Message is required' });
+    }
     const lowerMessage = message.toLowerCase().trim();
-    
+    console.log('Processed lowerMessage:', lowerMessage);
+
     // Check predefined responses (including greetings)
-    db.get('SELECT response FROM predefined_responses WHERE keyword = ?', 
-        [lowerMessage], 
+    console.log('Attempting exact match for keyword:', lowerMessage);
+    db.get('SELECT response FROM predefined_responses WHERE keyword = ?',
+        [lowerMessage],
         (err, row) => {
             if (err) {
+                console.error('Error during exact match query:', err.message);
                 return res.status(500).json({ error: err.message });
             }
-            
+
             if (row) {
+                console.log('Exact match found. Response:', row.response);
                 return saveAndReturnResponse(message, row.response, res);
             }
-            
+
+            console.log('No exact match found. Attempting partial match for:', lowerMessage);
             // Try partial matches
             db.get(
                 'SELECT response FROM predefined_responses WHERE ? LIKE "%" || keyword || "%" ORDER BY LENGTH(keyword) DESC LIMIT 1',
                 [lowerMessage],
                 (err, partialRow) => {
                     if (err) {
+                        console.error('Error during partial match query:', err.message);
                         return res.status(500).json({ error: err.message });
                     }
-                    
-                    const response = partialRow 
-                        ? partialRow.response 
+
+                    const responseText = partialRow
+                        ? partialRow.response
                         : "I'm sorry, I don't have information about that. Please contact the temple office for assistance.";
                     
-                    saveAndReturnResponse(message, response, res);
+                    if (partialRow) {
+                        console.log('Partial match found. Response:', responseText);
+                    } else {
+                        console.log('No partial match found. Using default response.');
+                    }
+                    saveAndReturnResponse(message, responseText, res);
                 }
             );
         }
     );
 });
 
+// API endpoint to get events
+app.get('/api/events', (req, res) => {
+    // In a real application, you would fetch events from the database
+    const sampleEvents = [
+        {
+            id: 1,
+            title: 'Special Puja Ceremony',
+            event_date: new Date(new Date().setDate(new Date().getDate() + 7)).toISOString(), // 7 days from now
+            description: 'Join us for a special puja ceremony for peace and prosperity.'
+        },
+        {
+            id: 2,
+            title: 'Community Feast (Bhandara)',
+            event_date: new Date(new Date().setDate(new Date().getDate() + 14)).toISOString(), // 14 days from now
+            description: 'A community feast will be organized. All are welcome.'
+        }
+    ];
+    res.json(sampleEvents);
+});
+
 // Helper function
-function saveAndReturnResponse(message, response, res) {
-    db.run('INSERT INTO messages (user_message, response) VALUES (?, ?)', 
-        [message, response], 
+function saveAndReturnResponse(userMessage, botResponse, res) { // Renamed parameters for clarity
+    console.log(`Saving and returning response. User: "${userMessage}", Bot: "${botResponse}"`);
+    db.run('INSERT INTO messages (user_message, response) VALUES (?, ?)',
+        [userMessage, botResponse],
         function(err) {
-            if (err) console.error('Error saving message:', err);
-            res.json({ response });
+            if (err) {
+                console.error('Error saving message to DB:', err.message);
+                // Still attempt to send response to user even if DB save fails
+            } else {
+                console.log('Message saved to DB. Insert ID:', this.lastID);
+            }
+            res.json({ response: botResponse });
         }
     );
 }
@@ -153,9 +199,14 @@ app.listen(port, () => {
 
 // Error handling
 process.on('SIGINT', () => {
+    console.log('SIGINT signal received. Closing database connection...');
     db.close((err) => {
-        if (err) console.error(err.message);
-        console.log('Closed the database connection');
+        if (err) {
+            console.error('Error closing database on SIGINT:', err.message);
+        } else {
+            console.log('Database connection closed successfully via SIGINT handler.');
+        }
+        console.log('Exiting process now via SIGINT handler.');
         process.exit(0);
     });
 });
