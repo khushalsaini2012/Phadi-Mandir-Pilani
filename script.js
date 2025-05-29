@@ -14,6 +14,27 @@ let initialPanTranslateX = 0;
 let initialPanTranslateY = 0;
 
 
+// Add any existing JavaScript here
+
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navContainer = document.querySelector('.nav-bar .nav-container');
+
+    if (mobileNavToggle && navContainer) {
+        mobileNavToggle.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+        });
+
+        // Close the mobile menu when a link is clicked
+        navContainer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navContainer.classList.remove('active');
+            });
+        });
+    }
+});
+
+
 // Main DOMContentLoaded listener
 window.addEventListener('DOMContentLoaded', () => {
     // Update copyright year

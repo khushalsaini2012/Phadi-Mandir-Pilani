@@ -1,3 +1,4 @@
+
 INSERT OR REPLACE INTO predefined_responses (keyword, response) VALUES
 ('location', 'Our temple is located at [Temple Address]. We are situated in a peaceful environment with ample parking facilities.'),
 ('timing', 'The temple is open from 6:00 AM to 8:30 PM daily. Aarti timings are: Morning 7:00 AM, Evening 7:00 PM.'),

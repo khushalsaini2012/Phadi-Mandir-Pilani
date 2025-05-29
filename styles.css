@@ -24,14 +24,14 @@ body {
 
 /* Navigation */
 .nav-bar {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    /* backdrop-filter: blur(10px); */
     position: fixed;
     width: 100%;
     z-index: 10;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .nav-container {
@@ -65,27 +65,97 @@ body {
     font-size: 1.2rem;
 }
 
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background for mobile menu */
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        justify-content: center;
+    }
+
+    .nav-container.active {
+        transform: translateX(0);
+    }
+
+    .nav-container a {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-bar .nav-container:not(.active) a {
+        display: none; /* Hide desktop links when mobile menu is not active */
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    .nav-bar .nav-container {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .nav-bar .nav-logo {
+        z-index: 1001;
+    }
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('./images/new_background.jpg') center/cover;
     position: relative;
     display: flex;
     align-items: center;
     text-align: center;
     color: white;
     margin-bottom: 4rem;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
