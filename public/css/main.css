@@ -1,0 +1,1281 @@
+:root {
+    --primary-color: #c2410c; /* Changed to a darker orange */
+    --secondary-color: #a16207;
+    --accent-color: #fbbf24;
+    --text-color: #444;
+    --bg-light: #fff7ed;
+    --border-radius: 20px;
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Philosopher', 'Noto Serif Devanagari', sans-serif;
+    background: linear-gradient(135deg, #ffedd5 0%, #fef9c3 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.nav-bar {
+    background: transparent;
+    /* backdrop-filter: blur(10px); */
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    z-index: 1000;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+.nav-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+    font-size: 1.3rem; /* Increased font size */
+}
+
+.nav-container a:hover {
+    color: #ff6b00; /* Brighter orange on hover */
+}
+
+.gaushala-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gaushala-nav i {
+    font-size: 1.2rem;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background for mobile menu */
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        justify-content: center;
+    }
+
+    .nav-container.active {
+        transform: translateX(0);
+    }
+
+    .nav-container a {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-bar .nav-container:not(.active) a {
+        display: none; /* Hide desktop links when mobile menu is not active */
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    .nav-bar .nav-container {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .nav-bar .nav-logo {
+        z-index: 1001;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 4rem;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin: 0;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    animation: fadeInUp 1s ease 0.3s;
+}
+
+/* Content Sections */
+.blog-section {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.blog-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.blog-post {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-title {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.blog-post-content {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Gallery Grid */
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    flex: 0 0 300px;
+    height: 200px;
+    cursor: pointer;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-light);
+    padding: 4rem 0;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slideshow styles */
+.slideshow-container {
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+    height: 300px;
+}
+
+/* Gallery Navigation Buttons */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.gallery-nav:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-gallery {
+    left: 10px;
+}
+
+.next-gallery {
+    right: 10px;
+}
+
+.slides {
+    width: 33.333%;
+    height: 100%;
+    flex-shrink: 0;
+    padding: 0 10px;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.active-dot {
+    background-color: var(--primary-color);
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        /* display: none; */ /* Remove or comment out this line */
+        /* Add styles here if you want the menu to stack or change layout on small screens */
+        flex-direction: column; /* Example: stack links vertically */
+        gap: 1rem; /* Example: adjust gap */
+        align-items: center; /* Example: center stacked links */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 2rem;
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex; 
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+}
+
+.zoom-level {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    color: white;
+    font-size: 14px;
+}
+
+.lightbox-zoom {
+    position: absolute;
+    bottom: 20px; /* Adjust position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2001; /* Add a higher z-index */
+}
+
+/* Remove navigation controls styles */
+/*
+.navigation-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+    z-index: 2001;
+}
+
+.nav-arrow {
+    pointer-events: auto;
+    cursor: pointer;
+    color: white;
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+*/
+
+/* Add/Update styles for the close button */
+.lightbox-close {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999; /* Increased z-index to ensure it's on top */
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+/* Add style for the donation text */
+.footer-section p {
+    color: var(--primary-color); /* Set text color to orange */
+}
+
+/* Animations */
+/* @keyframes fadeInUp is already defined earlier */
+
+/* Slideshow styles */
+/* .slideshow-container and related styles are already defined earlier */
+/* .slides and related styles are already defined earlier */
+/* .slides img and related styles are already defined earlier */
+/* .prev, .next and related styles are already defined earlier */
+/* .prev and related styles are already defined earlier */
+/* .next and related styles are already defined earlier */
+/* .dot and related styles are already defined earlier */
+/* .active-dot and related styles are already defined earlier */
+/* .fade class and related styles are already defined earlier */
+/* @keyframes fade is already defined earlier */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        /* display: none; */ /* Remove or comment out this line */
+        /* Add styles here if you want the menu to stack or change layout on small screens */
+        flex-direction: column; /* Example: stack links vertically */
+        gap: 1rem; /* Example: adjust gap */
+        align-items: center; /* Example: center stacked links */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 2rem;
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex; 
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+}
+
+.zoom-level {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    color: white;
+    font-size: 14px;
+}
+
+.lightbox-zoom {
+    position: absolute;
+    bottom: 20px; /* Adjust position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2001; /* Add a higher z-index */
+}
+
+/* Remove navigation controls styles */
+/*
+.navigation-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+    z-index: 2001;
+}
+
+.nav-arrow {
+    pointer-events: auto;
+    cursor: pointer;
+    color: white;
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+*/
+
+/* Add/Update styles for the close button */
+.lightbox-close {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999; /* Increased z-index to ensure it's on top */
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+.lightbox-instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.lightbox-instructions:hover {
+    opacity: 1;
+}
+
+/* Enhanced Chatbot Styles */
+.chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background: var(--bg-light);
+    border: 1px solid rgba(194, 65, 12, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.chatbot-container.active {
+    display: flex;
+    animation: slideIn 0.3s ease;
+}
+
+.chat-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.close-chat:hover {
+    transform: scale(1.1);
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.message {
+    max-width: 85%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    animation: messageSlide 0.3s ease;
+}
+
+.message.sent {
+    background: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message.received {
+    background: #f0f0f0;
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid rgba(194, 65, 12, 0.1);
+    gap: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid rgba(194, 65, 12, 0.2);
+    border-radius: 20px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.chat-input button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.open-chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.2);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.open-chatbot-button:hover {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+}
+
+.open-chatbot-button.hidden {
+    display: none;
+}
+
+/* Loading Animation */
+.message.loading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.message.loading:after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic Chatbot Styles */
+/* .chatbot-container is already defined with enhanced styles earlier */
+/* .chatbot-container.active is already defined with enhanced styles earlier */
+
+/* Style for the button to open the chatbot */
+/* .open-chatbot-button is already defined with enhanced styles earlier */
+/* .open-chatbot-button.hidden is already defined with enhanced styles earlier */
+
+/* Donation Form Styles */
+#donation-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.donate-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.donate-button:hover {
+    background: var(--secondary-color);
+}
+
+/* Events Section Styles */
+.event-date {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+/* Chat Loading Animation */
+/* .message.loading is already defined earlier */
+/* .message.loading:after is already defined earlier using loadingDots keyframes */
+
+/* @keyframes dots is redundant as @keyframes loadingDots serves the same purpose */
+
+.about-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.slider-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.slider-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
+.ad-slider {
+    position: relative;
+    height: 100%;
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease;
+}
+
+.ad-slide {
+    width: 33.333%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    flex-shrink: 0;
+}
+
+.ad-slide.active {
+    opacity: 1;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.priest-container {
+    text-align: center;
+}
+
+.priest-title {
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.priest-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .priest-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.priest-nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.priest-nav-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.priest-nav-title {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-top: 0.2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .nav-left {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+.hero-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 15;
+}
+
+.hero-priest-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+}
+
+.hero-priest-title {
+    color: #fff;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-image-container img {
+    height: 40px; /* Adjust height as needed */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.floating-btn {
+    position: fixed;
+    left: 20px; /* Changed from right to left */
+    bottom: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fefaf6;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid #c2410c;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    color: #c2410c;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #7b3f00;
+}
+
+#qrContainer {
+    margin: 20px 0;
+}
+
+#qrImage {
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #c2410c;
+    border-radius: 10px;
+}
+
+.qr-instructions {
+    color: #7b3f00;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.donate-btn {
+    background-color: #c2410c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: #7b3f00;
+}
