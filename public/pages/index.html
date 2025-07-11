@@ -3,11 +3,10 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>पहाड़ी मंदिर(pahadi Hanuman Mandir)</title>
+     <title>पहाड़ी मंदिर(Hanuman Mandir)</title>
       <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="../css/main.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-    <script src="../js/main.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="styles.css">
  </head>
  <body>
      <!-- Navigation -->
@@ -32,15 +31,15 @@
      <!-- Hero Section -->
      <section id="hero" class="hero">
          <video autoplay muted loop playsinline>
-             <source src="../assets/videos/v1.mp4" type="video/mp4">
+             <source src="v1.mp4" type="video/mp4">
          </video>
          <div class="hero-overlay"></div>
          <div class="hero-content container">
              <h1 class="hero-title">पहाड़ी मंदिर</h1>
              <p class="hero-subtitle">पिलानी की प्राचीनतम धरोहर, जहाँ आध्यात्मिकता और प्रकृति का अद्भुत संगम है</p>
              <p class="hero-coordinates">स्थान: 28.3630° उत्तर, 75.5896° पूर्व</p>
-             <a href="pages/priest.html" class="priest-link">
-                 <img src="../assets/images/priest.jpg" alt="Priest" style="position: absolute; top: -80px; right: -350px; width: 150px; height: auto; border: 2.5px solid #c2410c ;">
+             <a href="priest.html" class="priest-link">
+                 <img src="./images/priest.jpg" alt="Priest" style="position: absolute; top: -80px; right: -350px; width: 150px; height: auto; border: 2.5px solid #c2410c ;">
                  <div style="position: absolute; top: 60px; right: -338px; color: #ffffff; font-size: 25px; text-decoration: underline; text-decoration-color: #c2410c;">माई महाराज</div>
              </a>
          </div>
@@ -87,35 +86,39 @@
                          </ul>
                      </div>
                  </div>
-</div>
              </div>
          </section>
  
          <!-- Gallery Section -->
          <section id="gallery" class="section">
              <h2 class="section-title"><i class="fas fa-camera"></i>मंदिर गैलरी </h2>
-             <div class="gallery-container">
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_aerial.jpg" alt="Aerial view">
+             <div class="slideshow-container">
+                 <div class="slides">
+                     <img src="./images/temple_aerial.jpg" alt="Aerial view">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_hill.png" alt="Temple hill">
+                 <div class="slides">
+                     <img src="./images/temple_hill.png" alt="Temple hill">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_stairs.png" alt="Temple stairs">
+                 <div class="slides">
+                     <img src="./images/temple_stairs.png" alt="Temple stairs">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_entrance.png" alt="Temple entrance">
+                 <div class="slides">
+                     <img src="./images/temple_entrance.png" alt="Temple entrance">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_1.jpg" alt="Temple view">
+                 <div class="slides">
+                     <img src="./images/temple_1.jpg" alt="Temple view">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/temple_2.jpg" alt="mountain view">
+                 <div class="slides">
+                     <img src="./images/temple_2.jpg" alt="mountain view">
                  </div>
-                 <div class="gallery-item">
-                     <img src="../assets/images/nb.jpg" alt="mountain view">
+                  <div class="slides">
+                     <img src="./images/nb.jpg" alt="mountain view">
                  </div>
+                 <!-- Existing slides div elements -->
+                 
+                 <!-- Add navigation buttons -->
+                 <button class="gallery-nav prev-gallery" onclick="moveSlide('left')"><i class="fas fa-chevron-left"></i></button>
+                 <button class="gallery-nav next-gallery" onclick="moveSlide('right')"><i class="fas fa-chevron-right"></i></button>
              </div>
          </section>
  
@@ -175,26 +178,26 @@
      </div>
  </section>
 
- <section id="contact" class="section">
-     <h2 class="section-title"><i class="fas fa-envelope"></i>आगंतुक जानकारी</h2>
-     <div class="features-grid">
-         <div class="feature-card">
-             <i class="fas fa-map-marker-alt feature-icon"></i>
-             <h3>स्थान</h3>
-             <p>पिलानी शहर के उत्तर-पूर्व में<br>झुंझुनू जिला<br>राजस्थान - 333031<br>मुख्य बस स्टैंड से ~1 किमी</p>
-         </div>
-         <div class="feature-card">
-             <i class="fas fa-clock feature-icon"></i>
-             <h3>भ्रमण का उत्तम समय</h3>
-             <p>अक्टूबर से फरवरी (15-25°C)<br>गर्मियों के महीनों से बचें (अप्रैल-जून, 45°C तक)<br>शांतिपूर्ण भ्रमण के लिए सुबह का समय सर्वोत्तम</p>
-         </div>
-         <div class="feature-card">
-             <i class="fas fa-info-circle feature-icon"></i>
-             <h3>आगंतुक सुझाव</h3>
-             <p>- चढ़ाई से पहले जूते उतारें<br>- अपना पानी लाएं<br>- फोटोग्राफी की अनुमति है<br>- आधार पर सीमित पार्किंग</p>
-         </div>
-     </div>
- </section>
+<section id="contact" class="section">
+    <h2 class="section-title"><i class="fas fa-envelope"></i>आगंतुक जानकारी</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-map-marker-alt feature-icon"></i>
+            <h3>स्थान</h3>
+            <p>पिलानी शहर के उत्तर-पूर्व में<br>झुंझुनू जिला<br>राजस्थान - 333031<br>मुख्य बस स्टैंड से ~1 किमी</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-clock feature-icon"></i>
+            <h3>भ्रमण का उत्तम समय</h3>
+            <p>अक्टूबर से फरवरी (15-25°C)<br>गर्मियों के महीनों से बचें (अप्रैल-जून, 45°C तक)<br>शांतिपूर्ण भ्रमण के लिए सुबह का समय सर्वोत्तम</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-info-circle feature-icon"></i>
+            <h3>आगंतुक सुझाव</h3>
+            <p>- चढ़ाई से पहले जूते उतारें<br>- अपना पानी लाएं<br>- फोटोग्राफी की अनुमति है<br>- आधार पर सीमित पार्किंग</p>
+        </div>
+    </div>
+</section>
 
  <section id="nearby-attractions" class="section">
      <div class="container">
@@ -222,25 +225,23 @@
          <section id="advertisements" class="section">
              <div class="container">
                  <h2 class="section-title">विशेष सूचनाएं एवं विज्ञापन</h2>
-                 <div class="slider-container">
-    <button class="slider-nav prev" onclick="moveSlide(-1)">❮</button>
-    <div class="ad-slider">
+                 <div class="ad-slider">
                      <div class="ad-slide active">
-                        <img src="../assets/images/temple_1.jpg" alt="Advertisement 1" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                        <img src="./images/temple_1.jpg" alt="Advertisement 1" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
                          <div style="position: absolute; bottom: 10px; left: 10px; background-color: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
                              <h4>मंदिर का वार्षिक उत्सव</h4>
                              <p>अगले महीने होने वाले वार्षिक उत्सव में आप सभी सादर आमंत्रित हैं।</p>
                          </div>
                      </div>
                      <div class="ad-slide">
-                         <img src="../assets/images/temple_2.jpg" alt="Advertisement 2" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                         <img src="./images/temple_2.jpg" alt="Advertisement 2" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
                          <div style="position: absolute; bottom: 10px; left: 10px; background-color: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
                              <h4>गौशाला हेतु दान</h4>
                              <p>हमारी गौशाला की गायों की सेवा के लिए कृपया दान करें।</p>
                          </div>
                      </div>
                      <div class="ad-slide">
-                         <img src="../assets/images/temple_entrance.png" alt="Advertisement 3" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                         <img src="./images/temple_entrance.png" alt="Advertisement 3" style="width:100%; height: 300px; object-fit: cover; border-radius: 8px;">
                          <div style="position: absolute; bottom: 10px; left: 10px; background-color: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
                              <h4>स्वयंसेवक बनें</h4>
                              <p>मंदिर की सेवा गतिविधियों में भाग लेने के लिए संपर्क करें।</p>
@@ -250,134 +251,137 @@
              </div>
       
 
-         <!-- Footer section moved to end of website -->
+        <!-- Footer section moved to end of website -->
 
-     <!-- Add Lightbox HTML -->
-     <div class="lightbox" id="lightbox">
-         <div class="lightbox-content">
-             <button class="lightbox-close" onclick="closeLightbox(document.getElementById('lightbox'))">&times;</button>
-             <div class="navigation-controls">
-                 <span class="nav-arrow" onclick="moveImage('left')">
-                     <i class="fas fa-arrow-left"></i>
-                 </span>
-                 <span class="nav-arrow" onclick="moveImage('right')">
-                     <i class="fas fa-arrow-right"></i>
-                 </span>
-             </div>
-             <img src="" alt="" class="lightbox-image" id="lightbox-img">
-             <div class="zoom-level">Zoom: <span id="zoom-percentage">100%</span></div>
-             <div class="lightbox-zoom">
-                 <button class="zoom-button" onclick="zoomImage('in')">
-                     <i class="fas fa-search-plus"></i>
-                     <span>ज़ूम इन</span>
-                 </button>
-                 <button class="zoom-button" onclick="zoomImage('out')">
-                     <i class="fas fa-search-minus"></i>
-                     <span>ज़ूम आउट</span>
-                 </button>
-             </div>
-             <div class="lightbox-instructions">
-                 <p>ज़ूम इन/आउट के लिए माउस व्हील का उपयोग करें। ज़ूम इन होने पर पैन करने के लिए क्लिक करें और खींचें।</p>
-                 <p>कीबोर्ड: नेविगेट/पैन के लिए एरो कीज़, ज़ूम के लिए +/-, बंद करने के लिए Esc, दृश्य रीसेट करने के लिए Home।</p>
-             </div>
-         </div>
-     </div>
+    <!-- Add Lightbox HTML -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(document.getElementById('lightbox'))">&times;</button>
+            <div class="navigation-controls">
+                <span class="nav-arrow" onclick="moveImage('left')">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+                <span class="nav-arrow" onclick="moveImage('right')">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+            </div>
+            <img src="" alt="" class="lightbox-image" id="lightbox-img">
+            <div class="zoom-level">Zoom: <span id="zoom-percentage">100%</span></div>
+            <div class="lightbox-zoom">
+                <button class="zoom-button" onclick="zoomImage('in')">
+                    <i class="fas fa-search-plus"></i>
+                    <span>ज़ूम इन</span>
+                </button>
+                <button class="zoom-button" onclick="zoomImage('out')">
+                    <i class="fas fa-search-minus"></i>
+                    <span>ज़ूम आउट</span>
+                </button>
+            </div>
+            <div class="lightbox-instructions">
+                <p>ज़ूम इन/आउट के लिए माउस व्हील का उपयोग करें। ज़ूम इन होने पर पैन करने के लिए क्लिक करें और खींचें।</p>
+                <p>कीबोर्ड: नेविगेट/पैन के लिए एरो कीज़, ज़ूम के लिए +/-, बंद करने के लिए Esc, दृश्य रीसेट करने के लिए Home।</p>
+            </div>
+        </div>
+    </div>
 
      <!-- Link to external JavaScript file -->
-     
+     <script src="script.js"></script>
 
-     <!-- Basic Chatbot Container -->
-     <div class="chatbot-container" id="chatbot-container">
-         <div class="chat-header">
-             <h3>श्रीकांत से बात करें</h3>
-             <button class="close-chat" id="close-chat">&times;</button>
-         </div>
-         <div class="chat-box" id="chat-box">
-             <!-- Chat messages will be added here by JavaScript -->
-             <div class="message received">नमस्ते! आज मैं आपकी कैसे मदद कर सकता हूँ?</div>
-         </div>
-         <div class="chat-input">
-             <input type="text" id="chat-input" placeholder="प्रश्न हेतु एक शब्द उपयोग करें...">
-             <button id="send-button">भेजें</button>
-         </div>
-     </div>
- 
-     <!-- Optional: A button to open the chatbot -->
-     <button class="open-chatbot-button" id="open-chatbot-button">श्रीकांत</button>
-     
-     <section id="blog" class="section">
-         <div class="container">
-             <h2 class="section-title">ब्लॉग</h2>
-             <div class="features-grid">
-                 <div class="feature-card">
-                     <h3>ब्लॉग पोस्ट शीर्षक 1</h3>
-                     <p>यहां अपना हिंदी ब्लॉग कंटेंट लिखें। यह एक उदाहरण पाठ है।</p>
-                 </div>
-                 <div class="feature-card">
-                     <h3>ब्लॉग पोस्ट शीर्षक 2</h3>
-                     <p>यहां अपना दूसरा हिंदी ब्लॉग कंटेंट लिखें। यह एक उदाहरण पाठ है।</p>
-                 </div>
-                 <!-- Add more blog posts as needed -->
-             </div>
-         </div>
-     </section>
-     <h2>पिलानी पहाड़ी मंदिर स्थान</h2>
- 
- <!-- Embedded Google Map -->
- <div style="max-width: 100%; margin: 20px 0;">
-     <h3>पिलानी बालाजी पहाड़ी मंदिर स्थान</h3>
-     <iframe 
-       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7020.108886931482!2d75.6112144745104!3d28.38742353300364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39131b553d841b43%3A0x910008f8ea092acd!2sBalaji%20Pahadi%20Temple!5e0!3m2!1sen!2sin!4v1748090672465!5m2!1sen!2sin" 
-       width="100%" 
-       height="450" 
-       style="border:0; border-radius: 10px;" 
-       allowfullscreen="" 
-       loading="lazy" 
-       referrerpolicy="no-referrer-when-downgrade">
-     </iframe>
-   </div>
+    <!-- Basic Chatbot Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chat-header">
+            <h3>श्रीकांत से बात करें</h3>
+            <button class="close-chat" id="close-chat">&times;</button>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be added here by JavaScript -->
+            <div class="message received">नमस्ते! आज मैं आपकी कैसे मदद कर सकता हूँ?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="प्रश्न हेतु एक शब्द उपयोग करें...">
+            <button id="send-button">भेजें</button>
+        </div>
+    </div>
 
- <!-- Button to open custom map link -->
- <div style="text-align: center; margin-bottom: 1rem;">
-     <a href="https://maps.app.goo.gl/6HxjR4p4j91NrJdS8" target="_blank" style="text-decoration: none;">
-       <button style="padding: 12px 24px; font-size: 16px; background-color: #4285F4; color: white; border: none; border-radius: 6px; cursor: pointer;">
-         <i class="fas fa-map-marked-alt"></i> गूगल मैप्स में खोलें
-       </button>
-     </a>
- </div>
- 
-     <footer class="footer">
-         <div class="container">
-             <div class="footer-grid">
-                 <div class="footer-section">
-                     <h3>त्वरित लिंक्स</h3>
-                     <ul>
-                         <li><a href="#about" style="color: var(--primary-color); text-decoration: none;">परिचय</a></li>
-                         <li><a href="#features" style="color: var(--primary-color); text-decoration: none;">विकास कार्य</a></li>
-                         <li><a href="priest.html" style="color: var(--primary-color); text-decoration: none;">पुजारी</a></li>
-                         <li><a href="#gallery" style="color: var(--primary-color); text-decoration: none;">गैलरी</a></li>
-                         <li><a href="gaushala.html" style="color: var(--primary-color); text-decoration: none;">गौशाला</a></li>
-                     </ul>
-                 </div>
-                 <div class="footer-section">
-                     <h3>संपर्क करें</h3>
-                     <p><i class="fas fa-map-marker-alt"></i> मंदिर का पता, शहर, राज्य, पिन</p>
-                     <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                     <p><i class="fas fa-envelope"></i> info@templewebsite.com</p>
-                 </div>
-                 <div class="footer-section">
-                     <h3>सामाजिक मीडिया</h3>
-                     <div class="social-links">
-                         <a href="https://www.facebook.com/share/16BYDqeT3M/" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                     </div>
-                 </div>
-             </div>
-             <div class="copyright">
-                 <p>&copy; <span id="year"></span> मंदिर का नाम. सर्वाधिकार सुरक्षित.</p>
-             </div>
-         </div>
+    <!-- Optional: A button to open the chatbot -->
+    <button class="open-chatbot-button" id="open-chatbot-button">श्रीकांत</button>
+    
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">ब्लॉग</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>ब्लॉग पोस्ट शीर्षक 1</h3>
+                    <p>यहां अपना हिंदी ब्लॉग कंटेंट लिखें। यह एक उदाहरण पाठ है।</p>
+                </div>
+                <div class="feature-card">
+                    <h3>ब्लॉग पोस्ट शीर्षक 2</h3>
+                    <p>यहां अपना दूसरा हिंदी ब्लॉग कंटेंट लिखें। यह एक उदाहरण पाठ है।</p>
+                </div>
+                <!-- Add more blog posts as needed -->
+            </div>
+        </div>
+    </section>
+    <h2>पिलानी पहाड़ी मंदिर स्थान</h2>
+
+<!-- Embedded Google Map -->
+<div style="max-width: 100%; margin: 20px 0;">
+    <h3>पिलानी बालाजी पहाड़ी मंदिर स्थान</h3>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7020.108886931482!2d75.6112144745104!3d28.38742353300364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39131b553d841b43%3A0x910008f8ea092acd!2sBalaji%20Pahadi%20Temple!5e0!3m2!1sen!2sin!4v1748090672465!5m2!1sen!2sin" 
+      width="100%" 
+      height="450" 
+      style="border:0; border-radius: 10px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+<br><br>
+
+<!-- Button to open custom map link -->
+<div style="text-align: center; margin-bottom: 1rem;">
+    <a href="https://maps.app.goo.gl/6HxjR4p4j91NrJdS8" target="_blank" style="text-decoration: none;">
+      <button style="padding: 12px 24px; font-size: 16px; background-color: #4285F4; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        <i class="fas fa-map-marked-alt"></i> गूगल मैप्स में खोलें
+      </button>
+    </a>
+</div>
+
+    <!-- Footer section moved here -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>त्वरित लिंक्स</h3>
+                    <ul>
+                        <li><a href="#about" style="color: var(--primary-color); text-decoration: none;">परिचय</a></li>
+                        <li><a href="#features" style="color: var(--primary-color); text-decoration: none;">विकास कार्य</a></li>
+                        <li><a href="priest.html" style="color: var(--primary-color); text-decoration: none;">पुजारी</a></li>
+                        <li><a href="#gallery" style="color: var(--primary-color); text-decoration: none;">गैलरी</a></li>
+                        <li><a href="gaushala.html" style="color: var(--primary-color); text-decoration: none;">गौशाला</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>संपर्क करें</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> मंदिर का पता, शहर, राज्य, पिन</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@templewebsite.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>सामाजिक मीडिया</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16BYDqeT3M/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> मंदिर का नाम. सर्वाधिकार सुरक्षित.</p>
+            </div>
+        </div>
     </footer>
 
-</html>
+</html>     
